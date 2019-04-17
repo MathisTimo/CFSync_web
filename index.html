@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="sendMessage.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -22,9 +23,16 @@
       var db = firebase.firestore();
 
       // Test get Messages
-      db.collection('TP_general').get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-          console.log(doc.id, '=>', doc.data());
+      // db.collection('TP_general').get().then(function(querySnapshot) {
+      //   querySnapshot.forEach(function(doc) {
+      //     console.log(doc.id, '=>', doc.data());
+      //   });
+      // });
+
+      // Test get Messages realtime
+      db.collection('TP_general').onSnapshot(function(querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          console.log(doc.data());
         });
       });
     </script>
@@ -245,14 +253,14 @@
             </ul>
         </div>
         <div id="sendblock">
-            <form method="POST" action="Conversation.php">
+          <form>
             <div>
               <input id="fieldmessage" type="text" name="fname">
             </div>
             <div id="plane">
-              <input type="submit" id="send" value="">
+              <input type="submit" id="send" value="" onclick="sendMessage()">
             </div>
-            </form>
+          </form>
         </div>
       </div>
     </div>
