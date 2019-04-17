@@ -4,8 +4,7 @@
   <head>
     <title>CFSync</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
       // Initialize Firebase
@@ -17,8 +16,17 @@
         storageBucket: "cfsync-9d06b.appspot.com",
         messagingSenderId: "552617427957"
       };
-      firebase.initializeApp(config);
-      var database = firebase.database();
+      var database = firebase.initializeApp(config);
+
+      //var database = firebase.database();
+      var db = firebase.firestore();
+
+      // Test get Messages
+      db.collection('TP_general').get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          console.log(doc.id, '=>', doc.data());
+        });
+      });
     </script>
   </head>
   <body>
@@ -36,9 +44,9 @@
         <div id="salon">
             <p id=groupe>Temps plein</p>
             <div id="icons">
-               <img class="chaticons" src="https://zupimages.net/up/19/15/lxb4.png"> 
-               <img class="chaticons" src="https://zupimages.net/up/19/15/nf8z.png"> 
-               <img class="chaticons" src="https://zupimages.net/up/19/15/xeat.png"> 
+               <img class="chaticons" src="https://zupimages.net/up/19/15/lxb4.png">
+               <img class="chaticons" src="https://zupimages.net/up/19/15/nf8z.png">
+               <img class="chaticons" src="https://zupimages.net/up/19/15/xeat.png">
             </div>
             <input type="text" id="search" name="fname" placeholder="Search..">
         </div>
@@ -60,26 +68,36 @@
       <div id="right">
         <div id="chatMessages">
             <ul>
-            <li>
+              <li>
                 <div class="message-data">
                 <span class="message-data-name"> Prénom</span>
                 <span class="message-data-time">19:12 </span>
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
-                </li>
+              </li>
                 <div id="DIV ET SON CONTENUE A SUPPRIMER">
-                <li>
+              <li>
                 <div class="message-data">
                 <span class="message-data-name"> Prénom</span>
                 <span class="message-data-time">19:12 </span>
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
+                </a>
+                </div>
+              </li>            <li>
+                <div class="message-data">
+                <span class="message-data-name"> Prénom</span>
+                <span class="message-data-time">19:12 </span>
+                </div>
+                <div class="message my-message">
+                <a>
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -89,7 +107,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -99,7 +117,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -109,7 +127,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -119,7 +137,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -129,7 +147,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -139,7 +157,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -149,7 +167,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -159,7 +177,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -169,7 +187,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -179,7 +197,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -189,7 +207,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -199,7 +217,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -209,7 +227,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>            <li>
@@ -219,17 +237,7 @@
                 </div>
                 <div class="message my-message">
                 <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
-                </a>
-                </div>
-                </li>            <li>
-                <div class="message-data">
-                <span class="message-data-name"> Prénom</span>
-                <span class="message-data-time">19:12 </span>
-                </div>
-                <div class="message my-message">
-                <a>
-                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site! 
+                C'est un message de test, il ne sert à rien mais il est très utile pour voir le design du site!
                 </a>
                 </div>
                 </li>
@@ -250,4 +258,3 @@
     </div>
   </body>
 </html>
-
