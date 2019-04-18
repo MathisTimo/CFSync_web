@@ -29,11 +29,18 @@
       //   });
       // });
 
-      // Test get Messages realtime
-      db.collection('TP_general').onSnapshot(function(querySnapshot) {
-        console.log("Nouveau message");
-        querySnapshot.forEach(function (doc) {
-          console.log(doc.data());
+      // Test get Messages realtime last messa
+      db.collection('TP_general').onSnapshot(function(snapshot) {
+        snapshot.docChanges().forEach(function(change) {
+          if (change.type === 'added') {
+            console.log("New message:", change.doc.data());
+          }
+          if (change.type === "modified") {
+            console.log("Modified city: ", change.doc.data());
+          }
+          if (change.type === "removed") {
+            console.log("Removed city: ", change.doc.data());
+          }
         });
       });
     </script>
