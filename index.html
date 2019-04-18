@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>CFSync</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-database.js"></script>
@@ -38,6 +39,7 @@
           console.log(doc.data());
         });
       });
+     
     </script>
   </head>
   <body>
@@ -78,7 +80,7 @@
       </div>
       <div id="right">
         <div id="chatMessages">
-            <ul>
+            <ul id="ulmsg">
               <li>
                 <div class="message-data">
                 <span class="message-data-name"> Prénom</span>
