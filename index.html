@@ -277,8 +277,11 @@
     document.getElementById("fieldmessage").addEventListener("blur", function(event) {
       stopWriting();
     }, true);
-
+    //
+    // Listen Change in firebase
+    //
     db.collection('onWrite').doc('main').onSnapshot(function(doc) {
+      // if someone is writing
       if (doc.data().write === true) {
         console.log('Someone writing');
       }
