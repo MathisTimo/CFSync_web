@@ -13,3 +13,27 @@ function sendMessage() {
     console.log('Error:', error);
   });
 }
+
+function onWriting() {
+  var writeRef = db.collection("onWrite").doc("main");
+
+  return writeRef.update({
+    write: true
+  }).then(function() {
+    //console.log("Document Updated");
+  }).catch(function(error) {
+    console.log("Error", error);
+  });
+}
+
+function stopWriting() {
+  var writeRef = db.collection("onWrite").doc("main");
+
+  return writeRef.update({
+    write: false
+  }).then(function() {
+    //console.log("Document Updated");
+  }).catch(function(error) {
+    console.log("Error", error);
+  });
+}

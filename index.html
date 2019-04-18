@@ -267,12 +267,21 @@
     </div>
   </body>
   <script type="text/javascript">
+    //
+    // Listen fieldmessage
+    //
     document.getElementById("fieldmessage").addEventListener("focus", function(event) {
-      console.log("En ecriture");
+      onWriting();
     }, true);
 
     document.getElementById("fieldmessage").addEventListener("blur", function(event) {
-      console.log("Stop ecriture");
+      stopWriting();
     }, true);
+
+    db.collection('onWrite').doc('main').onSnapshot(function(doc) {
+      if (doc.data().write === true) {
+        console.log('Someone writing');
+      }
+    });
   </script>
 </html>
