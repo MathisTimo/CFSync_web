@@ -254,7 +254,7 @@
             </ul>
         </div>
         <div id="sendblock">
-          <form>
+          <form id="formmessage">
             <div>
               <input id="fieldmessage" type="text" name="fname">
             </div>
@@ -266,4 +266,13 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+    document.getElementById("fieldmessage").addEventListener("focus", function(event) {
+      console.log("En ecriture");
+    }, true);
+
+    document.getElementById("fieldmessage").addEventListener("blur", function(event) {
+      console.log("Stop ecriture");
+    }, true);
+  </script>
 </html>
